@@ -158,8 +158,8 @@ img {
 <li>fBodyBodyGyroJerkMag-meanFreq()</li>
 </ul>
 </div>
-<div id="processing" class="section level3">
-<h3>Processing</h3>
+<div id="processing" class="section level2">
+<h2>Processing</h2>
 <p>Data processing requires the <code>data.table</code> and <code>reshape2</code> libraries. Main data processing is performed by the <code>dataProcessing</code> function for both the test and training sets. It returns a txt file where measurements (X_<em>.txt), activities (y_</em>.txt) and subject (subject_*.txt) data is merged:</p>
 <pre class="{r}"><code>#Processing a dataset
 dataProcessing &lt;- function(directory, X_fn, y_fn, s_fn, 
@@ -186,10 +186,10 @@ print(dim(merged))</code></pre>
 tidy &lt;- aggregate(. ~SubjectId + ActivityType, merged, mean)
 print(dim(tidy))</code></pre>
 <p><strong>The resulting dataset is stored as a <code>tidy.txt</code> file.</strong></p>
-<pre class="{r}"><code>write.table(tidy, file = &quot;tidy.txt&quot;)</code></pre>
+<pre class="{r}"><code>write.table(tidy, file = &quot;tidy.txt&quot;, row.name=FALSE)</code></pre>
 <hr />
-<div id="dataprocessing-function-detailed" class="section level4">
-<h4>dataProcessing function detailed</h4>
+<div id="dataprocessing-function-detailed" class="section level3">
+<h3>dataProcessing function detailed</h3>
 <p>The <code>dataProcessing</code> function loads the datasets main files: <code>X_*.txt</code> (e.g. <code>X_test.txt</code> or <code>X_train.txt</code>), <code>y_*.txt</code> files, and <code>subject_*.txt</code> files.</p>
 <pre class="{r}"><code>  X_file &lt;- read.table(file.path(directory,X_fn,fsep=.Platform$file.sep))
   y_file &lt;- read.table(file.path(directory,y_fn,fsep=.Platform$file.sep))

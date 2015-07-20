@@ -98,7 +98,7 @@ The tidy dataset comprehend the list of files described in the README.md file. T
 - fBodyBodyGyroJerkMag-meanFreq()
 
 
-###Processing
+##Processing
 
 Data processing requires the `data.table` and `reshape2` libraries. Main data processing is performed by the `dataProcessing` function for both the test and training sets. It returns a txt file where measurements (X_*.txt), activities (y_*.txt) and subject (subject_*.txt) data is merged:
 
@@ -142,12 +142,12 @@ print(dim(tidy))
 **The resulting dataset is stored as a `tidy.txt` file.**
 
 ```{r}
-write.table(tidy, file = "tidy.txt")
+write.table(tidy, file = "tidy.txt", row.name=FALSE)
 ```
 
 
 ---
-#### dataProcessing function detailed
+### dataProcessing function detailed
 The `dataProcessing` function loads the datasets main files: `X_*.txt` (e.g. `X_test.txt` or `X_train.txt`), `y_*.txt` files, and `subject_*.txt` files.
 
 ```{r}

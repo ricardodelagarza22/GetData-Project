@@ -58,4 +58,4 @@ print(dim(merged))
 tidy <- aggregate(. ~SubjectId + ActivityType, merged, mean)
 print(dim(tidy))
 
-write.table(tidy, file = "tidy.txt")
+write.table(tidy, file = "tidy.txt", row.name=FALSE)
